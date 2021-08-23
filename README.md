@@ -226,7 +226,7 @@ telegram定义了许多场景下的对象，[详见](https://core.telegram.org/b
 
 | Field    | Type                                            | Description                                                  |
 | :------- | :---------------------------------------------- | :----------------------------------------------------------- |
-| type     | String                                          | 实体的类型。 可以是“mention”（@username），“hashtag”（#hashtag），“cashtag”（$ USD），“ bot_command”（/ start @ jobs_bot），“ URL”（[https://telegram.org](https://telegram.org/)），“ email”（do-not-reply@telegram.org），“phone_number”（+ 1-212-555-0123），“bold”（粗体），“italic”（斜体），“underline”（带下划线的文本） ），“strikethrough”（删除线文本），“code”（等宽字符串），“ pre”（等宽块），“ text_link”（对于可点击的文本URL），“ text_mention”（对于没有用户名的用户） |
+| type     | String                                          | 实体的类型。 可以是“mention”（@username），<br>“hashtag”（#hashtag），<br>“cashtag”（$ USD），<br>“ bot_command”（/ start @ jobs_bot），<br>“ URL”（[https://telegram.org](https://telegram.org/)），<br>“ email”（do-not-reply@telegram.org），<br>“phone_number”（+ 1-212-555-0123），<br>“bold”（粗体），“italic”（斜体），<br>“underline”（带下划线的文本） ），“strikethrough”（删除线文本），<br>“code”（等宽字符串），“ pre”（等宽块），<br>“ text_link”（对于可点击的文本URL），<br>“ text_mention”（对于没有用户名的用户） |
 | offset   | Integer                                         | 以UTF-16代码单位向实体开始的偏移量                           |
 | length   | Integer                                         | 实体的长度（以UTF-16代码单元为单位）                         |
 | url      | String                                          | 可选的。仅对于“ text_link”，用户点击文本后将打开的URL        |
