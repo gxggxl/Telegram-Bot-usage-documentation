@@ -9,15 +9,15 @@
 
 1. 添加BotFather为好友
 
-   [点击这里](https://telegram.me/botfather)添加botfather
+   [点击这里](https://telegram.me/botfather)添加BotFather
 
-2. 打开和botfather的对话框发送 `/newbot`
+2. 打开和BotFather的对话框发送 `/newbot`
 
-   这一步过后botfather会提示你输入你要创建的机器人的名字，这个名字可以随意，是我们称呼它的名字
+   这一步过后BotFather会提示你输入你要创建的机器人的名字，这个名字可以随意，是我们称呼它的名字
 
 3. 设置自定义机器人的名字（这个名字不同于上一步的名字，这个名字是唯一的）结尾必须是`_bot`或者`Bot`，不能包含中文, 标点符号
 
-4. 如果上一步执行成功那么botfather会返回该机器人的token，大概长这样
+4. 如果上一步执行成功那么BotFather会返回该机器人的token，大概长这样
 
    ```
    123456789:ABCDEfghiJK4314daDSadSa7
@@ -630,7 +630,7 @@ webhook可以理解为客户端给服务端的api,只要服务端一有更新就
 
 **手动注册**
 
-1. 和`botFather`对话，输入`/mybot`
+1. 和`BotFather`对话，输入`/mybot`
 
 2. 选择要注册指令的机器人
 
