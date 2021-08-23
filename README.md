@@ -1,9 +1,9 @@
-# [Telegram Bot 使用文档](https://www.cnblogs.com/kainhuck/p/13576012.html)
+# Telegram Bot 使用文档
 
-[原文](https://www.cnblogs.com/kainhuck/p/13576012.html)
-[官方文档](https://core.telegram.org/bots/api)
+- [原文](https://www.cnblogs.com/kainhuck/p/13576012.html)
+- [官方文档](https://core.telegram.org/bots/api)
 
-## 创建机器人[#](https://www.cnblogs.com/kainhuck/p/13576012.html#2213778449)
+## 创建机器人
 
 在telegram中我们可以通过和一个名为`BotFather`的机器人交互来申请我们自己的机器人，具体步骤如下
 
@@ -25,11 +25,11 @@
 
    记住这个token,到这里机器人就创建好了
 
-## 将机器人添加到群组里[#](https://www.cnblogs.com/kainhuck/p/13576012.html#3230247578)
+## 将机器人添加到群组里
 
 进入机器人信息页面，点击`更多`，点击`添加到群组`，选择一个群组即可
 
-## 获取群组chat_id[#](https://www.cnblogs.com/kainhuck/p/13576012.html#2207563578)
+## 获取群组chat_id
 
 通常来说我们都需要让机器人在一个群组里工作，所以首先我们需要将机器人添加到我们指定的群组，在群组里发送随意消息并@这个机器人，比如
 
@@ -66,9 +66,9 @@ https://api.telegram.org/bot<token>/getUpdates
 
 从中找到chat.id这就是当前群组的id,以后发消息都是发到这个id.
 
-## 机器人发送请求[#](https://www.cnblogs.com/kainhuck/p/13576012.html#13977771)
+## 机器人发送请求
 
-### 请求接口[#](https://www.cnblogs.com/kainhuck/p/13576012.html#1789346293)
+### 请求接口
 
 telegram发送消息的方式类似与钉钉机器人，都是向一个api发送http请求，而且对于同一个API`telegram`支持`GET`和`POST`两种请求方式.请求的api格式如下
 
@@ -78,16 +78,16 @@ https://api.telegram.org/bot<token>/<method>
 
 其中token为你的机器人token，method为telegram给定的方法，在获取群组chat_id那一步就使用了telegram的其中一个方法(getUpdates),其他方法后面会介绍
 
-### 携带参数[#](https://www.cnblogs.com/kainhuck/p/13576012.html#903317708)
+### 携带参数
 
 请求api时有些方法需要携带参数，telegram支持的传参方式/类型如下
 
 - URL查询参数
-- application/x-www-form-urlencoded
-- application/json
-- multipart/form-data(上传文件使用这个content-type)
+- `application/x-www-form-urlencoded`
+- `application/json`
+- `multipart/form-data` (上传文件使用这个content-type)
 
-### 获取响应[#](https://www.cnblogs.com/kainhuck/p/13576012.html#2878488628)
+### 获取响应
 
 对于每次请求telegram都会有一个响应，响应的内容是一个json，格式如下
 
@@ -100,13 +100,13 @@ https://api.telegram.org/bot<token>/<method>
 
 其中返回的result可以是telegram定义的对象或者是对象的列表
 
-## telegram对象[#](https://www.cnblogs.com/kainhuck/p/13576012.html#778177844)
+## telegram对象
 
 telegram机器人的几乎所有操作都是一个一个对象的操作。
 
 telegram定义了许多场景下的对象，[详见](https://core.telegram.org/bots/api#available-types)，这里举例一些常见的
 
-### Update[#](https://www.cnblogs.com/kainhuck/p/13576012.html#1048097495)
+### Update
 
 该对象表示传入的更新，比如接收到用户发来的新消息，就会获得新的更新
 
@@ -127,7 +127,7 @@ telegram定义了许多场景下的对象，[详见](https://core.telegram.org/b
 
 任何给定的更新中最多只能存在一个可选参数。
 
-### User[#](https://www.cnblogs.com/kainhuck/p/13576012.html#2376686680)
+### User
 
 该对象表示telegram的一个用户或者机器人
 
@@ -143,7 +143,7 @@ telegram定义了许多场景下的对象，[详见](https://core.telegram.org/b
 | can_read_all_group_message | Boolean | 可选。返回True如果该机器人禁用了隐私模式，只在`getMe`方法返回 |
 | supports_inline_queries    | Boolean | 可选。返回True，如果这个自持内联查询，只在`getMe`方法返回    |
 
-### Chat[#](https://www.cnblogs.com/kainhuck/p/13576012.html#1742631692)
+### Chat
 
 该对象表示一个聊天信息
 
@@ -164,7 +164,7 @@ telegram定义了许多场景下的对象，[详见](https://core.telegram.org/b
 | sticker_set_name    | String                                                       | 可选。针对 supergroups, 组贴纸集的名称。仅在getChat中返回。  |
 | can_set_sticker_set | Boolean                                                      | 可选。 返回True如果机器人可以改变group的贴纸集，只在`getChat`方法中返回。 |
 
-### Message[#](https://www.cnblogs.com/kainhuck/p/13576012.html#3253216423)
+### Message
 
 该对象代表一个消息
 
@@ -220,7 +220,7 @@ telegram定义了许多场景下的对象，[详见](https://core.telegram.org/b
 | passport_data           | [PassportData](https://core.telegram.org/bots/api#passportdata) | 可选的。 电报护照数据                                        |
 | reply_markup            | [InlineKeyboardMarkup](https://core.telegram.org/bots/api#inlinekeyboardmarkup) | 可选的。 消息附带的嵌入式键盘。 login_url按钮表示为普通url按钮。 |
 
-### MessageEntity[#](https://www.cnblogs.com/kainhuck/p/13576012.html#2088061823)
+### MessageEntity
 
 该对象表示文本消息中的一个特殊实体。例如，标签，用户名，URL等。
 
@@ -233,7 +233,7 @@ telegram定义了许多场景下的对象，[详见](https://core.telegram.org/b
 | user     | [User](https://core.telegram.org/bots/api#user) | 可选的。仅针对“ text_mention”，提到的用户                    |
 | language | String                                          | 可选的。仅对于“ pre”，实体文本的编程语言                     |
 
-### BotCommand[#](https://www.cnblogs.com/kainhuck/p/13576012.html#2918660833)
+### BotCommand
 
 这个对象代表值一条机器人指令
 
@@ -242,7 +242,7 @@ telegram定义了许多场景下的对象，[详见](https://core.telegram.org/b
 | command     | String | 命令文本，1-32个字符。只能包含小写英文字母，数字和下划线。 |
 | description | String | 命令说明，3-256个字符。                                    |
 
-### WebhookInfo[#](https://www.cnblogs.com/kainhuck/p/13576012.html#1480758332)
+### WebhookInfo
 
 这个对象表示当前webhook的状态
 
@@ -256,7 +256,7 @@ telegram定义了许多场景下的对象，[详见](https://core.telegram.org/b
 | max_connections        | Integer         | 可选的。与Webhook进行更新交付的同时HTTPS连接的最大允许数量   |
 | allowed_updates        | Array of String | 可选的。机器人已订阅的更新类型的列表。默认为所有更新类型     |
 
-### ReplyKeyboardMarkup[#](https://www.cnblogs.com/kainhuck/p/13576012.html#2000537022)
+### ReplyKeyboardMarkup
 
 该对象表示带有回复选项的自定义键盘
 
@@ -267,7 +267,7 @@ telegram定义了许多场景下的对象，[详见](https://core.telegram.org/b
 | one_time_keyboard | Boolean                                                      | 可选的。要求客户在使用键盘后立即隐藏它。键盘仍然可用，但是客户端将在聊天中自动显示常用的字母键盘-用户可以在输入字段中按特殊按钮以再次查看自定义键盘。默认为false。 |
 | selective         | Boolean                                                      | 可选的。如果只想向特定用户显示键盘，请使用此参数。目标：1）在Message对象的文本中@提及的用户； 2）如果机器人的消息是回复（具有reply_to_message_id），则为原始消息的发送者。 示例：用户请求更改机器人的语言，机器人用键盘答复选择新语言的请求。群组中的其他用户看不到键盘。 |
 
-### KeyboardButton[#](https://www.cnblogs.com/kainhuck/p/13576012.html#1156968898)
+### KeyboardButton
 
 该对象表示回复键盘的一个按钮。对于简单的文本按钮，可以使用`String`代替此对象来指定按钮的文本。可选字段`request_contact`，`request_location`和`request_poll`是互斥的。
 
@@ -282,7 +282,7 @@ telegram定义了许多场景下的对象，[详见](https://core.telegram.org/b
 
 **注意**：*request_poll*选项仅在2020年1月23日之后发布的电报版本中有效。旧客户端将显示不支持的消息。
 
-### KeyboardButtonPollType[#](https://www.cnblogs.com/kainhuck/p/13576012.html#256971017)
+### KeyboardButtonPollType
 
 该对象表示民意调查的类型，可以在按下相应按钮时创建并发送该民意调查
 
@@ -290,7 +290,7 @@ telegram定义了许多场景下的对象，[详见](https://core.telegram.org/b
 | :---- | :----- | :----------------------------------------------------------- |
 | type  | String | 可选的。如果通过了测验，将仅允许用户以测验模式创建民意测验。如果通过常规，则仅允许常规民意调查。否则，将允许用户创建任何类型的民意测验。 |
 
-### ReplyKeyboardRemove[#](https://www.cnblogs.com/kainhuck/p/13576012.html#3714116451)
+### ReplyKeyboardRemove
 
 收到带有此对象的消息后，Telegram客户端将删除当前的自定义键盘并显示默认的字母键盘。默认情况下，将显示自定义键盘，直到机器人发送新键盘为止。一次性键盘的例外情况是用户按下按钮后立即隐藏的一次性键盘
 
@@ -299,7 +299,7 @@ telegram定义了许多场景下的对象，[详见](https://core.telegram.org/b
 | remove_keyboard | True    | 请求客户端删除自定义键盘（用户将无法召唤此键盘；如果要隐藏键盘，但保持其可访问性，请在ReplyKeyboardMarkup中使用one_time_keyboard） |
 | selective       | Boolean | 可选的。如果仅要为特定用户卸下键盘，请使用此参数。目标：1）在Message对象的文本中@提及的用户； 2）如果漫游器的消息是回复（具有reply_to_message_id），则为原始消息的发送者。 示例：用户在投票中投票，机器人返回确认消息以回应投票，并删除该用户的键盘，同时仍向尚未投票的用户显示带有投票选项的键盘。 |
 
-### InlineKeyboardMarkup[#](https://www.cnblogs.com/kainhuck/p/13576012.html#3252460952)
+### InlineKeyboardMarkup
 
 该对象表示一个嵌入式键盘，出现在其所属消息的旁边。
 
@@ -309,7 +309,7 @@ telegram定义了许多场景下的对象，[详见](https://core.telegram.org/b
 
 **注意**：这仅适用于2016年4月9日之后发布的电报版本。较旧的客户端将显示不受支持的消息。
 
-### InlineKeyboardButton[#](https://www.cnblogs.com/kainhuck/p/13576012.html#3206463618)
+### InlineKeyboardButton
 
 此对象表示嵌入式键盘的一个按钮。您必须完全使用可选字段之一。
 
@@ -327,7 +327,7 @@ telegram定义了许多场景下的对象，[详见](https://core.telegram.org/b
 | pay                              | Boolean                                                      | 可选的。指定True，发送付款按钮。  **
 注意**：此类型的按钮必须始终是第一行中的第一个按钮。 |
 
-### ForceReply[#](https://www.cnblogs.com/kainhuck/p/13576012.html#2968557365)
+### ForceReply
 
 收到带有该对象的消息后，Telegram客户端将向用户显示一个答复界面（就像用户选择了机器人的消息并点按“答复”一样）。如果您要创建用户友好的逐步界面而不必牺牲隐私模式，这将非常有用。
 
@@ -336,11 +336,11 @@ telegram定义了许多场景下的对象，[详见](https://core.telegram.org/b
 | force_reply | True    | 向用户显示回复界面，就像他们手动选择了机器人的消息并点按“回复”一样 |
 | selective   | Boolean | 可选的。如果只想强制特定用户答复，请使用此参数。目标：1）在Message对象的文本中@提及的用户； 2）如果漫游器的消息是回复（具有reply_to_message_id），则为原始消息的发送者。 |
 
-## telegram方法[#](https://www.cnblogs.com/kainhuck/p/13576012.html#1678610450)
+## telegram方法
 
 telegram方法就是拼接在api后面的那串字符串，不区分大小写。[详见](https://core.telegram.org/bots/api#available-methods)，这里只列举一些常用的，下面我所指的返回是指返回json中的result部分，其他章节提到的所有方法均可以在这一章节查阅
 
-### getUpdates[#](https://www.cnblogs.com/kainhuck/p/13576012.html#2194340374)
+### getUpdates
 
 - 描述
 
@@ -354,7 +354,7 @@ telegram方法就是拼接在api后面的那串字符串，不区分大小写。
 
   `update`对象列表
 
-### setWebhook[#](https://www.cnblogs.com/kainhuck/p/13576012.html#2697542078)
+### setWebhook
 
 - 描述
 
@@ -373,7 +373,7 @@ telegram方法就是拼接在api后面的那串字符串，不区分大小写。
 
   成功返回`True`
 
-### deleteWebhook[#](https://www.cnblogs.com/kainhuck/p/13576012.html#4229800409)
+### deleteWebhook
 
 - 描述
 
@@ -387,7 +387,7 @@ telegram方法就是拼接在api后面的那串字符串，不区分大小写。
 
   成功返回True
 
-### getWebhookInfo[#](https://www.cnblogs.com/kainhuck/p/13576012.html#1634840277)
+### getWebhookInfo
 
 - 描述
 
@@ -403,7 +403,7 @@ telegram方法就是拼接在api后面的那串字符串，不区分大小写。
 
   （如果没有设置webhook，则返回的对象中url为空）
 
-### getMe[#](https://www.cnblogs.com/kainhuck/p/13576012.html#3683466272)
+### getMe
 
 - 描述
 
@@ -417,7 +417,7 @@ telegram方法就是拼接在api后面的那串字符串，不区分大小写。
 
   `user`对象
 
-### getChat[#](https://www.cnblogs.com/kainhuck/p/13576012.html#1599458655)
+### getChat
 
 - 描述
 
@@ -433,7 +433,7 @@ telegram方法就是拼接在api后面的那串字符串，不区分大小写。
 
   `chat`对象
 
-### sendMessage[#](https://www.cnblogs.com/kainhuck/p/13576012.html#2874809786)
+### sendMessage
 
 - 描述
 
@@ -455,7 +455,7 @@ telegram方法就是拼接在api后面的那串字符串，不区分大小写。
 
   刚刚发送的`message`对象
 
-### setMyCommands[#](https://www.cnblogs.com/kainhuck/p/13576012.html#1726474775)
+### setMyCommands
 
 - 描述
 
@@ -471,7 +471,7 @@ telegram方法就是拼接在api后面的那串字符串，不区分大小写。
 
   成功返回`True`
 
-### getMyCommands[#](https://www.cnblogs.com/kainhuck/p/13576012.html#4055215880)
+### getMyCommands
 
 - 描述
 
@@ -487,7 +487,7 @@ telegram方法就是拼接在api后面的那串字符串，不区分大小写。
 
 -
 
-## 格式化选项[#](https://www.cnblogs.com/kainhuck/p/13576012.html#273594809)
+## 格式化选项
 
 格式化选项就是让我们的机器人以某种格式发送消息（比如markdown，或者html）
 
@@ -506,7 +506,7 @@ Bot API支持消息的基本格式。您可以在机器人的消息中使用粗�
 - 这些链接仅在内联链接中使用时才有效。例如，当用于嵌入式键盘按钮或消息文本中时，它们将不起作用。
 - 仅当用户过去联系过该机器人，通过内联按钮向该机器人发送了回调查询或成为提及该用户的组的成员时，才能保证这些提及有效。
 
-### MarkdownV2 style[#](https://www.cnblogs.com/kainhuck/p/13576012.html#2184023057)
+### MarkdownV2 style
 
 要使用此模式，请在parse_mode字段中传递MarkdownV2。在您的消息中使用以下语法：
 
@@ -537,7 +537,7 @@ pre-formatted fixed-width code block written in the Python programming language
 - 在其他所有地方这些字符 '_', '*', '[', ']', '(', ')', '~', '`', '>', '#', '+', '-', '=', '|', '{', '}', '.', '!' 必须用前置'\'转义
 - 如果`斜体`和`下划线`之间存在歧义，`__`始终从左到右被视为`下划线`实体的开始或结尾，所以使用`___italic underline_\r__`代替`___italic underline___`
 
-### HTML style[#](https://www.cnblogs.com/kainhuck/p/13576012.html#2680817478)
+### HTML style
 
 要使用此模式，请在parse_mode字段中传递HTML。当前支持以下标签：
 
@@ -566,7 +566,7 @@ pre-formatted fixed-width code block written in the Python programming language
 - 使用嵌套的pre和code标签，为pre实体定义编程语言。
 - 不能为独立code标签指定编程语言。
 
-### Markdown style[#](https://www.cnblogs.com/kainhuck/p/13576012.html#1577458424)
+### Markdown style
 
 这是旧版模式，保留下来是为了向后兼容。要使用此模式，请在parse_mode字段中传递Markdown。在您的消息中使用以下语法：
 
@@ -593,15 +593,15 @@ pre-formatted fixed-width code block written in the Python programming language
 - 要在实体外部转义字符`_`，`*`，`，`[`，请在字符之前加上`\`。
 - 不允许在实体内部转义，因此必须先关闭实体再重新打开：对于斜体使用`_snake_\__case_`，对于粗体`2*2=4`使用 `snake_case` 和 `*2*\**2=4*`。
 
-## telegram更新[#](https://www.cnblogs.com/kainhuck/p/13576012.html#3991052006)
+## telegram更新
 
 telegram中更新指的是机器人是否有收到新的消息，具体有哪些消息可以查看`telegram对象`部分中的`Update`，获取更新的方式有两种1. 轮询，2.webhook
 
-### 轮询[#](https://www.cnblogs.com/kainhuck/p/13576012.html#3884908881)
+### 轮询
 
 这是一种主动询问的方式，这种方式比较简单但是效率欠佳，具体操作是，开发者每个一段时间请求一次`getUpdates`方法，从获取结果中判断update有无更新，有关`update`对象的描述可看`telegram对象`章节
 
-### webhook[#](https://www.cnblogs.com/kainhuck/p/13576012.html#3765529422)
+### webhook
 
 webhook可以理解为客户端给服务端的api,只要服务端一有更新就会主动将内容发送到客户端设置的一个api中，然后客户端收到消息后可做相应处理。
 
@@ -609,7 +609,7 @@ webhook可以理解为客户端给服务端的api,只要服务端一有更新就
 
 通过`setWebhook`方法设置（前面有介绍），需要注意的是，telegram只支持`https`协议，所以我们的api服务器必须要有TLS证书，必须注意一但我们设置了webhook那么通过`getUpdates`方法将不起作用！
 
-## telegram中的命令[#](https://www.cnblogs.com/kainhuck/p/13576012.html#2940792923)
+## telegram中的命令
 
 通过命令来和机器人交互是电报机器人的一大特色，在telegram中命令由实体`BotCommand`表示（telegram对象那节已经介绍过）。
 
@@ -626,7 +626,7 @@ webhook可以理解为客户端给服务端的api,只要服务端一有更新就
 2. 在聊天消息中命令会高亮显示
 3. 已经注册的命令在对话框中只需要输入`/`就会有提示列表
 
-### 给机器人注册指令[#](https://www.cnblogs.com/kainhuck/p/13576012.html#2496681215)
+### 给机器人注册指令
 
 **手动注册**
 
@@ -651,11 +651,11 @@ webhook可以理解为客户端给服务端的api,只要服务端一有更新就
 
 - 详见（telegram方法 setMyCommands）
 
-### 查看已注册的指令[#](https://www.cnblogs.com/kainhuck/p/13576012.html#2391924298)
+### 查看已注册的指令
 
 - 详见（telegram方法 getMyCommands）
 
-### 基本指令[#](https://www.cnblogs.com/kainhuck/p/13576012.html#1712308910)
+### 基本指令
 
 telegram建议我们的机器人都带上三条基本指令分别是
 
@@ -665,12 +665,12 @@ telegram建议我们的机器人都带上三条基本指令分别是
 
 当设置了上面三个命令，用户首次打开与你的机器人的对话时，将看到`Start`按钮。机器人的个人资料页面上的菜单中将提供`Help`和`Settings`链接。
 
-## 键盘[#](https://www.cnblogs.com/kainhuck/p/13576012.html#412021632)
+## 键盘
 
 telegram中键盘也是机器人的一大特色，开发者可以自定义自己的键盘，一个键盘相当于机器人的菜单可以理解为一个答复界面，可以更加方便的和机器人交互。
 
 telegram中的键盘有四种`ReplyKeyboardMarkup`，`InlineKeyboardMarkup`，`ReplyKeyboardRemove`和`ForceReply`，这四个对象可参考前面的介绍
 
-### 创建键盘[#](https://www.cnblogs.com/kainhuck/p/13576012.html#1748698869)
+### 创建键盘
 
 只需要在`sendMessage`时指定`reply_markup`即可，详见`sendMessage`方法
