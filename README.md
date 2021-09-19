@@ -2,7 +2,7 @@
 
 - [原文](https://www.cnblogs.com/kainhuck/p/13576012.html)
 - [官方文档](https://core.telegram.org/bots/api)
-- [反代API](./telegram_bot_api.md)
+- [反代API](./telegram-bot-api.md)
 
 ## 创建机器人
 
