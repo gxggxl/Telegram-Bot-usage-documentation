@@ -1,5 +1,7 @@
 # tg api 反代（Deploy in Workers of cloudflare）
 
+在 Cloudflare 的 Workers 中部署
+
 ```JavaScript
 const whitelist = ["/bot"];
 const tg_host = "api.telegram.org";
