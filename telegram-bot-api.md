@@ -1,4 +1,4 @@
-# tg api 反代
+# tg api 反代（Deploy in Workers of cloudflare）
 
 ```JavaScript
 const whitelist = ["/bot"];
