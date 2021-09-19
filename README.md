@@ -1,6 +1,6 @@
 # Telegram Bot 使用文档
 
-- [原文](https://www.cnblogs.com/kainhuck/p/13576012.html)
+- [文档原文](https://www.cnblogs.com/kainhuck/p/13576012.html)
 - [官方文档](https://core.telegram.org/bots/api)
 - [反代API](./telegram-bot-api.md)
 
