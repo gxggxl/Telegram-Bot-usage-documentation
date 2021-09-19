@@ -1,6 +1,7 @@
 # tg api 反代（Deploy in Workers of cloudflare）
 
 在 Cloudflare 的 Workers 中部署
+⚠️注意：仅能用于通知，互动还是用原生API吧。
 
 ```JavaScript
 const whitelist = ["/bot"];
