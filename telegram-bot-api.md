@@ -1,6 +1,7 @@
-# 代理 telegram API
+# 代理 telegram Bot API
 
 在 Cloudflare 的 Workers 中部署（Deploy in Workers of cloudflare）
+
 ⚠️注意：仅能用于通知，互动还是用原生API吧。
 
 ```JavaScript
