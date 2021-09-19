@@ -31,3 +31,5 @@ async function handleRequest(request) {
     return await fetch(req);
 }
 ```
+
+你会得到类似`xxxx.username.workers.dev`的URL。
