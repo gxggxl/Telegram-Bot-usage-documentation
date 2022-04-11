@@ -33,4 +33,4 @@ async function handleRequest(request) {
 }
 ```
 
-你会得到类似`xxxx.username.workers.dev`的URL。
+你会得到类似`xxx.xxx.workers.dev`的URL。
